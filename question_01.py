@@ -22,153 +22,25 @@
 
 # 풀이
 
-# couple = []
-# n = input()
+couple = []
+n = input()
 
-# for i in range(int(n)):
-#     a, b = input().split()
-#     a = int(a)
-#     b = int(b)
-#     couple.append([a, b])
+for i in range(int(n)):
+    a, b = input().split()
+    a = int(a)
+    b = int(b)
+    couple.append([a, b])
 
-# for i in range(len(couple)-1):
-#     for j in range(len(couple)-1):
-#         a = couple[j][0]
-#         b = couple[j+1][0]
-#         if (a < b):
-#             pass
-#         else:
-#             tmp = couple[j+1]
-#             couple[j+1] = couple[j]
-#             couple[j] = tmp
-
-# for i in range(len(couple)):
-#     print(couple[i][0], couple[i][1])
-
-
-
-# 프로그래밍 문제를 풀다 보면 뒤죽박죽인 N개의 데이터를 숫자의 크기 순으로 0 ~ N-1까지의 숫자로 재정렬 해야되는 경우가 종종 있다.
-
-# 예를 들어 N=5 이고,
-
-# 50 23 54 24 123
-
-# 이라는 데이터가 있다면,
-
-# 2 0 3 1 4
-
-# 가 된다.
-
-# 데이터를 재정렬하는 프로그램을 작성하시오.
-
-# 입력
-# 첫째 줄에 데이터의 개수 N이 입력된다. ( 1 <= N <= 50,000)
-
-# 둘째 줄에 공백으로 분리되어 N개의 서로 다른 데이터가 입력된다. (값의 범위:0~500,000)
-
-# 출력
-# N개의 데이터를 0 ~ N-1로 재정렬하여 출력하라.
-
-# n = int(input())
-
-# th = []
-# arr = []
-# for i in range(n):
-#     num = int(input())
-#     arr.append(num)
-#     th.append(num)
-
-# print(th)
-# arr.sort()
-# print(arr)
-# for i in range(n):
-#     tmp = arr[i]
-#     for j in range(n):
-#         if(th[j] != tmp):
-#             pass
-#         else:
-#             th[j] = i
-
-# print(*th)
-
-
-
-# for i in range(len(arr)):
-#     if(arr2[i] != arr[i]):
-#         pass
-#     else:
-#         arr2[i] = i
-
-# print(*arr2)
-# import sys
-# n, m = map(int, sys.stdin.readline().split())
-
-
-
-
-    
-    
-
-
-# if n % i == 0:
-#     arr.append(i)
-
-# print(sum(arr))
-
-
-
-
-
-
-import sys
-n = int(sys.stdin.readline())
-line = list(map(int, sys.stdin.readline().split()))
-cnt = 1
-arr = []
-arr2 = []
-if n == 1:
-    print(1)
-else:
-    for i in range(len(line)-1):
-        if line[i] == line[i+1]:
-            cnt += 1
+for i in range(len(couple)-1):
+    for j in range(len(couple)-1):
+        a = couple[j][0]
+        b = couple[j+1][0]
+        if (a < b):
+            pass
         else:
-            arr.append(cnt)
-            cnt = 1
-        
-        if i == n-2:
-            arr.append(cnt)
+            tmp = couple[j+1]
+            couple[j+1] = couple[j]
+            couple[j] = tmp
 
-
-
-        
-# 99 3 4 2
-# 2 99 1 2
-# 2 99 3 2
-print(arr)
-
-
-## 관건
-## 오른쪽이든 왼쪽이든 많은 방향의 불상이 주가 되어야 함.
-
-## 결론 방향이 많이 나오는 불쌍이 시작되는 부분부터 끝나는 부분까지 색칠하면 됨.
-## 단, 중간에 낑긴 경우에 잘린 토막이 낑긴 토막보다 짧으면 안칠하는게 이득임.
-## 
-## 1 1 1 1 2 2 1 2 2 2 2 2
-## 
-## 어떤 경우에
-## 연속된 불상 말고 절대값이 유리한거지??
-## 
-## 100
-## 1 1 1 1 ... 2 1 1 1 1 = 99
-## 1 1 1 1 ... 1 2 1 1 1 = 99
-## 1 1 1 1 ... 1 1 2 1 1 = 99
-## 1 1 1 1 ... 1 1 1 2 1 = 98
-## 1 1 1 1 ... 1 1 2 1 2 = 99
-
-
-## 1 1 1 1 ... 1 1 2 2 1 = 98
-## 1 1 1 1 ... 1 2 2 1 1 = 98
-## 1 1 1 1 ... 2 2 1 1 1 = 98
-## 1 1 1 1 ... 1 1 2 1 1 = 99
-## 1 1 1 1 ... 1 1 2 1 1 = 99
+for i in range(len(couple)):
+    print(couple[i][0], couple[i][1])
