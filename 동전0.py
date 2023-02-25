@@ -51,13 +51,11 @@ for i in range(cnt):
     arr.append(j)
 
 arr.reverse()
-print(arr)
 total_cnt = 0
 for ar in arr:
     if (total // ar > 0):
-        print(total // ar)
+
         total_cnt += (total // ar)
         total %= ar
-
 
 print(total_cnt)
