@@ -13,6 +13,8 @@
 # 우리는 더 나은 배열 [2, 5, 9, 7, 4]를 만들 수 있으며 이 배열의 난이도는 |5-9| = 4이다. 
 # 이 배열보다 난이도가 낮은 배열은 만들 수 없으므로 이 배열이 남규가 찾는 답이 된다.
 
+#  2 12 13 11 1
+
 # 입력
 # 입력은 T개의 테스트 케이스로 이루어져 있다. 첫 줄에 T가 주어진다.
 
@@ -36,10 +38,14 @@
 # 0
 
 t = int(input())
-arrs = []
-for i in range(t):
-    n = int(input(n))
-    arr = input().split()
-    arrs.append(arr)
 
-print(arrs)
+for i in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    arr.sort() # 일단 배열 정렬
+    result = 0 # 초기 결과
+    for j in range(2, n): # 2번부터 마지막인덱스까지
+        c = arr[j] - arr[j-2] # 차이를 c에 저장
+        result = max(c, result)  #그 차이와 결과 중 큰 값을 결과에 저장
+    print(result)
+
