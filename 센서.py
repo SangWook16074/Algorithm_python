@@ -47,17 +47,21 @@ k = int(input())
 arr = list(map(int, input().split()))
 arr.sort()
 
-distance = []
-for i in range(len(arr)-1):
-    distance.append(arr[i+1]-arr[i])
+if len(arr) == 1:
+    print(0)
 
-distance.sort(reverse=True)
-
-if k == 1:
-    print(sum(distance))
 else:
+    distance = []
+    for i in range(len(arr)-1):
+        distance.append(arr[i+1]-arr[i])
 
-    for i in range (k-1):
-        distance.pop(0)
+    distance.sort(reverse=True)
 
-print(sum(distance))
+    if k == 1:
+        print(sum(distance))
+    else:
+
+        for i in range (k-1):
+            distance.pop(0)
+
+        print(sum(distance))
