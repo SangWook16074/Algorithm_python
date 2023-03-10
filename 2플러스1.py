@@ -35,7 +35,6 @@ for i in range(n):
 arr.sort(reverse=True)
 total = 0
 for i in range(n):
-    print(arr[i])
     if (i+1) % 3 != 0:
         total += arr[i]
 
