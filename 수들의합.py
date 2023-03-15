@@ -18,6 +18,5 @@ tmp = 0
 while n > tmp:
     tmp += 1
     n -= tmp
-    print(tmp, n)
 
 print(tmp)
