@@ -48,4 +48,5 @@ for _ in range(9):
     result.append(maxium)
 
 j = result_index.index(max(result_index))
+print(result[j])
 print(j+1, result_index[j]+1)
