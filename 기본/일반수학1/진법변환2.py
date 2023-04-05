@@ -22,13 +22,11 @@ import sys
 n, b = list(map(int, sys.stdin.readline().split()))
 result = ''
 while n > 0:
-    tmp = (n // b)
-    result += alphabet[tmp]
-    n %= b
+    result += alphabet[n % b]
+    n //= b
 
-    if n < b:
-        result += alphabet[n]
-        break
-
+result = list(result)
+result.reverse()
+result = ''.join(result)
 print(result)
 
