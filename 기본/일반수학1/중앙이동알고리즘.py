@@ -34,17 +34,11 @@
 
 import sys
 
+init = 2
 n = int(sys.stdin.readline().rstrip())
 
-cnt_dot = 4
-cnt_square = 1
-tmp = 4
-
 for i in range(n):
-    if i == 0:
-        cnt_dot += (5*cnt_square)
-    else:
-        cnt_dot += (5*cnt_square)-(tmp**i)
-    cnt_square *= 4
+    init += init - 1
 
-print(cnt_dot)
+print(init**2)
+
