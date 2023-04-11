@@ -62,15 +62,29 @@
 # 1 -> 2 -> 3 -> 4 -> 5 -> ...
 import sys
 
-a, b, v = list(map(int, sys.stdin.readline().split()))
-result = 0
-cnt = 1
-while result != v:
-    result += a
-    if result == v:
-        break
-    result -= b
-    
-    cnt += 1
-print(cnt)
+x = int(sys.stdin.readline().rstrip())
 
+cnt = 1
+while x > cnt:
+
+    x -= cnt
+    cnt += 1
+
+if cnt % 2 == 0:
+    n, m = 1, cnt
+else:
+    n, m = cnt, 1
+
+for _ in range(x-1):
+
+    if cnt % 2 == 0:
+        n += 1
+        m -= 1
+
+    else:
+        n -= 1
+        m += 1
+
+
+
+print('{}/{}'.format(n,m))
