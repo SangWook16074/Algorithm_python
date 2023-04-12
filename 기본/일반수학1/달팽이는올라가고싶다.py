@@ -26,5 +26,6 @@
 
 import sys
 
-a, b, v = map(int, sys.stdin.readline().split())
-print(((v-a) // (a - b)) + 1)
+a,b,v = map(int, sys.stdin.readline().split())
+k = (v-b)/(a-b)
+print(int(k) if k == int(k) else int(k)+1)
