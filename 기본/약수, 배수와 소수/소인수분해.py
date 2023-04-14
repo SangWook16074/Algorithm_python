@@ -38,8 +38,6 @@ import sys
 
 n = int(sys.stdin.readline().rstrip())
 
-#result = []
-
 if n == 1:
     pass
 
