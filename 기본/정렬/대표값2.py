@@ -37,6 +37,7 @@ arr = []
 
 for _ in range(5):
     arr.append(int(sys.stdin.readline().rstrip()))
+arr.sort()
 avg = sum(arr) / 5
-print(avg)
+print(int(avg))
 print(arr[2])
