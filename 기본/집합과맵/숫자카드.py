@@ -27,9 +27,14 @@
 import sys
 
 n = int(sys.stdin.readline().rstrip())
-arr1 = tuple(map(int, sys.stdin.readline().split()))
+arr1 = list(map(int, sys.stdin.readline().split()))
 
 m = int(sys.stdin.readline().rstrip())
-arr2 = tuple(map(int, sys.stdin.readline().split()))
+arr2 = list(map(int, sys.stdin.readline().split()))
+
+dic = {}
+for i in arr1:
+    dic[i] = 0
+
 for i in range(m):
-    print(1 if arr2[i] in arr1 else 0, end=' ')
+    print(1 if arr2[i] in dic else 0, end=' ')
