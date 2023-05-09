@@ -40,7 +40,7 @@ for _ in range(m):
         result[tmp] = 0
 
 print(len(result))
-result = sorted(result, key=lambda x : x[0])
+result = sorted(result, key=lambda x : x)
 for i in result:
     print(i)
 
