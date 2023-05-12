@@ -39,14 +39,12 @@
 
 import sys
 
-result_index = []
-result = []
+tmp = []
+tmp_index = []
 for _ in range(9):
     arr = list(map(int, sys.stdin.readline().split()))
     maxium = max(arr)
-    result_index.append(arr.index(maxium))
-    result.append(maxium)
+    tmp.append([maxium, arr.index(maxium)])
 
-j = result_index.index(max(result_index))
-print(result[j])
-print(j+1, result_index[j]+1)
+
+

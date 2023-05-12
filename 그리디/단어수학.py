@@ -28,34 +28,21 @@
 # 예제 출력 1 
 # 1998
 
-n = int(input())
-words = []
+import sys
 
-for i in range(n):
-    words.append(input())
+n = int(sys.stdin.readline().rstrip())
+cnt = 9
+arr = []
+result = 0
+for _ in range(n):
+    arr.append(sys.stdin.readline().rstrip())
 
-dic = {}
-
-for word in words:
-
-    value = len(word) - 1
-    for c in word:
-        if c in dic:
-            dic[c] += pow(10, value)
-        else:
-            dic[c] = pow(10, value)
-
-        value -= 1
-
-dic = sorted(dic.values(), reverse=True)
-
-result, m = 0, 9
-
-for value in dic:
-    result += value * 9
-    m -= 1
-
-print(result)
+arr = sorted(arr, reverse=True)
+while(cnt > 0):
+    current = ''
+    for i in arr:
+        for j in range(len(i)):
+            if i[j] == current
 
 
 
