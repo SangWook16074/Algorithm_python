@@ -42,7 +42,7 @@ n = int(input())
 for _ in range(n):
     homework.append(list(map(int, input().split())))
 
-result = sorted(homework, key=lambda x : (x[0], -x[1]))
+result = sorted(homework, key=lambda x : x[0])
 q = []
 for i in range(n):
     heapq.heappush(q, result[i][1])
