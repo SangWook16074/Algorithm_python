@@ -72,5 +72,5 @@ dfs(b, 0)
 if len(result) == 0:
     print(-1)
 else:
-    print(result[0])
+    print(result[0]-1)
 
