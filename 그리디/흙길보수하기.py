@@ -41,6 +41,5 @@ for i in range(n):
     length = end - start
     cnt += math.ceil(length / l)
     p = start + math.ceil(length / l)*l
-    print(cnt)
 print(cnt)
 
