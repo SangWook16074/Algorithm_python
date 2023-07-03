@@ -45,18 +45,22 @@
 # 3929
 
 import sys
+import math
 input = sys.stdin.readline
 
 x, y, w, s = map(int, input().split())
 cnt = 0
-if 2*w < s:
-    cnt += s*(x+y)
-elif w > s:
-    if max(x,y) % 2 == 0:
-        cnt += max(x, y) * s
+min_cross = min(x, y)
+distance = abs(x - y)
+if w >= s:
+    cnt += min_cross*s
+    if distance % 2 == 0:
+        cnt += distance*s
     else:
-        cnt += (max(x, y)-1) * s + w
+        cnt += (distance-1)*s + w
+elif 2*w < s:
+    cnt += (x+y)*w
 else:
-    cnt += s * min(x, y) + w * abs(x - y)
+    cnt += min_cross*s + distance*w
 
 print(cnt)
