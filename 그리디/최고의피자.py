@@ -42,7 +42,6 @@ c = int(input())
 d = []
 for _ in range(n):
     d.append(int(input()))
-f = math.floor
 toppings = sorted(d, reverse=True)
 price = a
 total_kcal = c
@@ -54,5 +53,4 @@ for topping in toppings:
         total_kcal += topping
         price += b
         
-
-print(f(result))
+print(math.floor(result))

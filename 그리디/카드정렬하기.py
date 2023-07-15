@@ -24,18 +24,22 @@
 # 20
 # 40
 
+# 예제 출력 1 
+# 100
+
 import sys
+input = sys.stdin.readline
 
 n = int(input())
 arr = []
-cnt = 0
-tmp = 0
-for i in range(n):
-    arr.append(int(sys.stdin.readline()))
+for _ in range(n):
+    arr.append(int(input()))
 
-arr.sort()
+card = sorted(arr)
+total = 0
+start_cnt = card[0]
 for i in range(1, n):
-    cnt += sum(arr[0:i+1])
-    print(cnt)
+    total += start_cnt + card[i]
+    start_cnt += card[i]
 
-print(cnt)
+print(total)
