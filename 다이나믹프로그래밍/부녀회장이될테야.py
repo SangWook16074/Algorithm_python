@@ -36,5 +36,4 @@ for _ in range(t):
         dp[i].append(0)
         for j in range(1, n+1):
             dp[i].append(sum(dp[i-1][:j+1]))
-    print(dp)
     print(dp[k][n])
