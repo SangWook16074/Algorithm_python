@@ -5,7 +5,7 @@ n = int(input())
 arr = [0]
 for _ in range(n):
     arr.append(int(input()))
-dp = [0] * 10
+dp = [0] * 10001
 if n >= 1:
     dp[1] = arr[1]
 
