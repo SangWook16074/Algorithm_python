@@ -25,6 +25,8 @@
 # 예제 출력 1 
 # 3 0 0 1 2 0 0 2
 
+
+# 집합과 맵을 이용한 풀이
 import sys
 
 n = int(sys.stdin.readline().rstrip())
@@ -40,3 +42,21 @@ for i in arr:
         result[i] = 1
 for i in find:
     print(result[i] if i in result else 0, end=' ')
+
+
+# 이진 탐색을 이용한 풀이
+from bisect import bisect_right, bisect_left
+import sys
+input = sys.stdin.readline
+
+def count_by_range(array, left_value, right_value):
+    right_idx = bisect_right(array, right_value)
+    left_idx = bisect_left(array, left_value)
+    return right_idx - left_idx
+
+n = int(input())
+card = sorted(list(map(int, input().split())))
+m = int(input())
+targets = list(map(int, input().split()))
+for t in targets:
+    print(count_by_range(card, t, t), end=' ')
