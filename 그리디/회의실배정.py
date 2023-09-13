@@ -28,21 +28,20 @@
 # 12 14
 # 예제 출력 1 
 # 4
+
 import sys
-
-n = int(sys.stdin.readline())
+input = sys.stdin.readline
 arr = []
+n = int(input())
 for _ in range(n):
-    ar = list(map(int, sys.stdin.readline().split()))
-    arr.append(ar)
-
-arr.sort(key=lambda x: (x[1], x[0]))
-print(arr)
-cnt = 1
-end_time = arr[0][1]
-for i in range(n):
-    if arr[i][0] >= end_time:
-        cnt += 1
-        end_time = arr[i][1]
-
-print(cnt)
+    arr.append(list(map(int, input().split())))
+arr = sorted(arr, key= lambda x : (x[1], x[0]))
+result = 0
+time = 0
+for a in arr:
+    start = a[0]
+    end = a[1]
+    if time <= start:
+        result += 1
+        time = end
+print(result)
