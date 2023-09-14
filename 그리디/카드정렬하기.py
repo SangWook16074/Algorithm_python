@@ -28,18 +28,17 @@
 # 100
 
 import sys
+import heapq
 input = sys.stdin.readline
-
+cards = []
 n = int(input())
-arr = []
 for _ in range(n):
-    arr.append(int(input()))
-
-card = sorted(arr)
-total = 0
-start_cnt = card[0]
-for i in range(1, n):
-    total += start_cnt + card[i]
-    start_cnt += card[i]
-
-print(total)
+    heapq.heappush(cards, int(input()))
+result = 0
+for _ in range(n-1):
+    first = heapq.heappop(cards)
+    second = heapq.heappop(cards)
+    total = first + second
+    result += total
+    heapq.heappush(cards, total)
+print(result)
