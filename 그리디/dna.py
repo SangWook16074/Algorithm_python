@@ -37,43 +37,38 @@
 
 # 각각의 인덱스를 비교해서 가장 빈도수가 많은 유전자 정보로 dna를 구성하면 됨.
 
-n, m = input().split()
-n = int(n)
-m = int(m)
-arr = []
-for i in range(n):
-    arr.append(list(map(str, input())))
-
-
-cnt, hap = 0, 0
+import sys
+input = sys.stdin.readline
+n, m = map(int, input().split())
+dnas = []
+for _ in range(n):
+    dnas.append(input())
 result = ''
+hammingcode = 0
 for i in range(m):
+    cnts = [0, 0, 0, 0]
     for j in range(n):
-        a, c, g, t = 0, 0, 0, 0
-        if arr[j][i] == 'T':
-            t += 1
-        elif arr[j][i] == 'A':
-            a += 1
-        elif arr[j][i] == 'C':
-            c += 1
-        elif arr[j][i] == 'G':
-            g += 1
-        
-    if max(a, c, g, t) == a:
+        ch = dnas[j][i]
+        if ch == 'A':
+            cnts[0] += 1
+        elif ch == 'C':
+            cnts[1] += 1
+        elif ch == 'G':
+            cnts[2] += 1
+        elif ch == 'T':
+            cnts[3] += 1
+    maximum = max(cnts)
+    hammingcode += n-maximum
+    idx = cnts.index(maximum)
+    if idx == 0:
         result += 'A'
-        hap += c + g + t
-    
-    elif max(a, c, g, t) == c:
+    elif idx == 1:
         result += 'C'
-        hap += a + g + t
-    
-    elif max(a, c, g, t) == g:
+    elif idx == 2:
         result += 'G'
-        hap += a + c + t
-    elif max(a, c, g, t) == t:
+    elif idx == 3:
         result += 'T'
-        hap += a + c + g
-
+    
 
 print(result)
-print(hap)
+print(hammingcode)
