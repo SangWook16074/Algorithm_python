@@ -13,4 +13,4 @@ for _ in range(n):
             if h[0] < a:
                 heapq.heappop(h)
                 heapq.heappush(h, a)
-print(h)
+print(h[0])
