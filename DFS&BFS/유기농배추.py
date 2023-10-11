@@ -67,36 +67,41 @@
 # 2
 
 import sys
+from collections import deque
 input = sys.stdin.readline
 
-def dfs(x, y):
-    if x <= -1 or x >= m or y <= -1 or y >= n:
-        return False
-    
-    if graph[y][x] == 1:
-        graph[y][x] = 0
-        dfs(y-1, x)
-        dfs(y+1, x)
-        dfs(y, x-1)
-        dfs(y, x+1)
-        return True
-    return False
+dx = [1, 0, -1, 0]
+dy = [0, 1, 0, -1]
+
+def bfs(x, y, graph):
+    q = deque()
+    graph[y][x] = 0
+    q.append((x, y))
+    while q:
+        x, y = q.popleft()
+        for i in range(4):
+            nx, ny = x+dx[i], y+dy[i]
+            if nx < 0 or nx >= m or ny < 0 or ny >= n:
+                continue
+            
+            if graph[ny][nx] == 0:
+                continue
+            
+            if graph[ny][nx] == 1:
+                graph[ny][nx] = 0
+                q.append((nx, ny))
 
 t = int(input())
 for _ in range(t):
-    cnt = 0
     m, n, k = map(int, input().split())
     graph = [[0 for _ in range(m)] for _ in range(n)]
     for _ in range(k):
-        x, y = map(int, input().split())
-        graph[y][x] = 1
-    
-    for i in range(n):
-        for j in range(m):
-            if dfs(i, j) == True:
+        a, b = map(int, input().split())
+        graph[b][a] = 1
+    cnt = 0
+    for x in range(m):
+        for y in range(n):
+            if graph[y][x] == 1:
                 cnt += 1
-
+                bfs(x, y, graph)
     print(cnt)
-
-
-    
