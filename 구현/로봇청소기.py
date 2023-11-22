@@ -17,23 +17,34 @@ while True:
         graph[r][c] = 2
         result += 1
 
+    # 주변 칸의 청소상태 스캔
     cnt = 0
     for i in range(4):
         if graph[r+dy[i]][c+dx[i]] != 0:
             cnt += 1
     
+    # 청소할 수 없다면
     if cnt == 4:
-        if graph[r-dy[d]][c-dx[d]] == 1:
+        nr, nc = r-dy[d], c-dx[d]
+        # 벽이라면 종료
+        if graph[nr][nc] == 1:
             break
+        # 후진 가능하면 이동
         else:
-            r, c = r-dy[d], c-dx[d]
+            r, c = nr, nc
+    
+    # 청소할 수 있다면
     else:
+        # 반시계 방향으로 회전
         for i in range(4):
             d -= 1
             if d < 0:
                 d = 3
-            if graph[r+dy[d]][c+dx[d]] == 0:
-                r, c, d = r+dy[d], c+dx[d], d
+            
+            # 청소해야 하는 칸이 등장하면 이동 후 회전 종료
+            nr, nc = r+dy[d], c+dx[d]
+            if graph[nr][nc] == 0:
+                r, c = nr, nc
                 break
 
 print(result)
