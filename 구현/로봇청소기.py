@@ -4,11 +4,7 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 r, c, d = map(int, input().split())
 graph = [list(map(int, input().split())) for _ in range(n)]
-
-'''
-0 : 북, 1 : 동, 2 : 남, 3 : 서
-'''
-
+# 0 : 북, 1 : 동, 2 : 남, 3 : 서
 dx = [0, 1, 0, -1]
 dy = [-1, 0, 1, 0]
 result = 0
@@ -40,11 +36,9 @@ while True:
             d -= 1
             if d < 0:
                 d = 3
-            
             # 청소해야 하는 칸이 등장하면 이동 후 회전 종료
             nr, nc = r+dy[d], c+dx[d]
             if graph[nr][nc] == 0:
                 r, c = nr, nc
                 break
-
 print(result)
