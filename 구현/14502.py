@@ -25,7 +25,6 @@ def bfs(x, y, visited):
                 q.append((nx, ny))
 
 
-# 벽을 세우고
 for x in range(n):
     for y in range(m):
         if graph[x][y] == 0:
