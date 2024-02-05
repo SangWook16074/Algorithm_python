@@ -3,24 +3,20 @@ input = sys.stdin.readline
 sys.setrecursionlimit(10**5)
 
 
+def dfs(node, weight):
+    for x, w in graph[node]:
+        total = weight + w
+        if visited[x] == -1:
+            visited[x] = total
+            dfs(x, total)
+
+
 n = int(input())
 graph = [[] for _ in range(n+1)]
-
-
-def dfs(idx, cnt):
-    for x, w in graph[idx]:
-        if visited[x] == -1:
-            weight = cnt + w
-            visited[x] = weight
-            dfs(x, weight)
-    return
-
-
 for _ in range(n-1):
     p, c, w = map(int, input().split())
     graph[p].append((c, w))
     graph[c].append((p, w))
-
 visited = [-1 for _ in range(n+1)]
 visited[1] = 0
 dfs(1, 0)
